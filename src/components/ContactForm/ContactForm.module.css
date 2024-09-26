@@ -1,0 +1,31 @@
+.container{
+     display: flex;
+     flex-direction: column;
+     border: 2px solid #000000;
+     border-radius: 4px;
+     width: 280px;
+     padding: 20px;
+}
+
+
+
+.input{
+     width: 240px;
+     margin-bottom: 8px;
+}
+
+.button{
+     width: 108px;
+     margin: 0 auto;
+     cursor: pointer;
+     border: 2px solid #b4b4b4;
+     border-radius: 3px;
+}
+
+.button:hover{
+     background-color: #c2c2c2;
+}
+
+.errorMessage{
+     color: red;
+}

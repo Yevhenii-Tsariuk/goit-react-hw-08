@@ -1,0 +1,28 @@
+.contact {
+  border: 1px solid #000000;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 6px;
+  width: 280px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.button {
+  height: 26px;
+  cursor: pointer;
+  border: 2px solid #b4b4b4;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.button:hover{
+     background-color: #c2c2c2;
+}
