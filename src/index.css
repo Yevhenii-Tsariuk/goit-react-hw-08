@@ -6,8 +6,19 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-color: rgb(83, 83, 83);
+  color: rgb(180, 180, 180); */
+  color: black;
+  background-image: url(./img/kenrick-mills.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
+body{
+  margin: 0;
+}
 
 h1,
 h2,
@@ -31,4 +42,20 @@ ol {
 img {
   display: block;
   max-width: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: rgb(180, 180, 180);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: orangered;
+}
+
+button {
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
 }

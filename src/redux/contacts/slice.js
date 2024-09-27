@@ -1,6 +1,8 @@
 import { createSlice, createSelector } from "@reduxjs/toolkit";
-import { fetchContacts, addContact, deleteContact } from "./contactsOps";
-import { selectContacts, selectNameFilter } from "./selectors";
+import { fetchContacts, addContact, deleteContact } from "./operations";
+import { selectNameFilter } from "../filters/selectors";
+import { selectContacts } from "./selectors";
+import { logOut } from '../auth/operations';
 
 const handlePending = (state) => {
   state.loading = true;
@@ -20,6 +22,15 @@ const contactsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+
+    .addCase(logOut.fulfilled, () => {
+      return {
+        items: [],
+        isLoading: false,
+        error: null,
+      };
+    })
+
       .addCase(fetchContacts.pending, handlePending)
       .addCase(fetchContacts.fulfilled, (state, action) => {
         state.loading = false;
