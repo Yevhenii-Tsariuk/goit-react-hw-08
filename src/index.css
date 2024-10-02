@@ -6,17 +6,21 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: rgb(83, 83, 83);
-  color: rgb(180, 180, 180); */
-  color: black;
-  background-image: url(./img/kenrick-mills.jpg);
+
+  color: bisque;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(78, 78, 78, 0.7),
+      rgba(117, 119, 160, 0.3)
+    ),
+    url(./img/kenrick-mills.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
 
-body{
+body {
   margin: 0;
 }
 
@@ -46,16 +50,27 @@ img {
 
 a {
   font-weight: 500;
-  color: rgb(180, 180, 180);
+  color: bisque;
   text-decoration: inherit;
 }
 
 a:hover {
-  color: orangered;
+  color: rgb(214, 158, 89);
 }
 
 button {
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
+  /* margin: 0 auto; */
+  display: block;
+  width: 112px;
+  height: 32px;
+  border: none;
+  border-radius: 24px;
+  background-color: rgb(223, 223, 223);
+}
+
+button:hover {
+  background-color: #c2c2c2;
 }

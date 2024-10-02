@@ -12,7 +12,8 @@ export default function RegistrationForm() {
   };
 
   return (
-    <div>
+    <div className={css.containerForm}>
+      <h1 className={css.title}>Register your account</h1>
       <Formik
         initialValues={{
           name: '',

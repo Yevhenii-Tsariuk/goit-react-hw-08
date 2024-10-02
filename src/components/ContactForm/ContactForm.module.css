@@ -1,29 +1,37 @@
-.container{
-     display: flex;
-     flex-direction: column;
-     border: 2px solid #000000;
-     border-radius: 4px;
-     width: 280px;
-     padding: 20px;
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(57, 57, 58);
+  border-radius: 4px;
+  width: 280px;
+  padding: 20px;
+  background: linear-gradient(
+    to bottom,
+    rgba(58, 58, 58, 0.9),
+    rgba(95, 97, 133, 0.8)
+  );
 }
 
-.input{
-     width: 240px;
-     margin-bottom: 8px;
+.input {
+  width: 240px;
+  margin-bottom: 8px;
+  height: 32px;
+  border: none;
+  border-radius: 14px;
+  padding-left: 16px;
+  background-color: rgb(158, 158, 158, 0.8);
 }
 
-.button{
-     width: 108px;
-     margin: 0 auto;
-     cursor: pointer;
-     border: 2px solid #b4b4b4;
-     border-radius: 3px;
+.button {
+  margin: 0 auto;
+  cursor: pointer;
+  width: 112px;
+  height: 32px;
+  border: none;
+  border-radius: 14px;
+  margin-top: 14px;
 }
 
-.button:hover{
-     background-color: #c2c2c2;
-}
-
-.errorMessage{
-     color: red;
+.errorMessage {
+  color: red;
 }

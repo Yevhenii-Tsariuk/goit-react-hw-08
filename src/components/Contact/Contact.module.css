@@ -1,11 +1,16 @@
 .contact {
-  border: 1px solid #000000;
+  border: 1px solid rgb(57, 57, 58);
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px 6px;
   width: 280px;
+  background: linear-gradient(
+    to bottom,
+    rgba(58, 58, 58, 0.9),
+    rgba(95, 97, 133, 0.8)
+  );
 }
 
 .item {
@@ -15,14 +20,14 @@
 }
 
 .button {
+  width: 86px;
   height: 26px;
   cursor: pointer;
-  border: 2px solid #b4b4b4;
-  border-radius: 3px;
+  border: 1px solid #b4b4b4;
+  border-radius: 12px;
   display: flex;
   align-items: center;
+  justify-content: space-around;
 }
 
-.button:hover{
-     background-color: #c2c2c2;
-}
+

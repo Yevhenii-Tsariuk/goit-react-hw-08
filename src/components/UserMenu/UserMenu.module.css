@@ -1,9 +1,13 @@
-.wrapper{
-     display: flex;
-     align-items: center;
-     gap: 12px;
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.username{
-     font-weight: 700;
+.username {
+  font-weight: 700;
+}
+
+.button {
+  width: 86px;
 }
