@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "../Layout/Layout";
-import { Toaster } from "react-hot-toast";
+
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,7 +28,7 @@ export default function App() {
   return isRefreshing ? (
     <b>Please wait, updating user info...</b>
   ) : (
-    <div>
+    
       <Layout>
         <Suspense fallback={null}>
           <Routes>
@@ -56,10 +56,6 @@ export default function App() {
           </Routes>
         </Suspense>
       </Layout>
-      <div>
-        <Toaster />
-      </div>
-    </div>
-    
+     
   );
 }
