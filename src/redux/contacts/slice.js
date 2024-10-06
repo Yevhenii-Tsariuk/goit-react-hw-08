@@ -1,8 +1,8 @@
 import { createSlice, createSelector } from "@reduxjs/toolkit";
-import { fetchContacts, addContact, deleteContact } from "./operations";
+import { fetchContacts, addContact, editContact, deleteContact } from "./operations";
 import { selectNameFilter } from "../filters/selectors";
 import { selectContacts } from "./selectors";
-import { logOut } from '../auth/operations';
+import { logOut } from "../auth/operations";
 
 const handlePending = (state) => {
   state.loading = true;
@@ -20,16 +20,22 @@ const contactsSlice = createSlice({
     loading: false,
     error: null,
   },
+
+  reducers: {
+    changeCurrentContact: (state, action) => {
+      state.currentContact = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
 
-    .addCase(logOut.fulfilled, () => {
-      return {
-        items: [],
-        isLoading: false,
-        error: null,
-      };
-    })
+      .addCase(logOut.fulfilled, () => {
+        return {
+          items: [],
+          isLoading: false,
+          error: null,
+        };
+      })
 
       .addCase(fetchContacts.pending, handlePending)
       .addCase(fetchContacts.fulfilled, (state, action) => {
@@ -56,11 +62,24 @@ const contactsSlice = createSlice({
         );
         state.items.splice(index, 1);
       })
-      .addCase(deleteContact.rejected, handleRejected);
+      .addCase(deleteContact.rejected, handleRejected)
+      .addCase(editContact.pending, handlePending)
+      .addCase(editContact.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = false;
+        state.items = state.items.map((item) =>
+          item.id === state.currentContact.id ? action.payload : item
+        );
+        state.currentContact = null;
+      })
+      .addCase(editContact.rejected, handleRejected)
+      
   },
 });
 
 export const contactsReducer = contactsSlice.reducer;
+
+export const { changeCurrentContact } = contactsSlice.actions;
 
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter],

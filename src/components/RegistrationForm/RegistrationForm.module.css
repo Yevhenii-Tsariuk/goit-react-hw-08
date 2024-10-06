@@ -27,6 +27,12 @@
   background-color: rgb(158, 158, 158, 0.5);
 }
 
+.input:focus-within {
+  border: 2px solid rgb(65, 64, 64);
+  outline: none;
+}
+
 .button {
   margin: 0 auto;
+  display: block;
 }

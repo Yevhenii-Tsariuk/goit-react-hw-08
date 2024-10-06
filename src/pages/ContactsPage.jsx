@@ -9,9 +9,15 @@ import PageTitle from "../components/PageTitle/PageTitle";
 import { fetchContacts } from "../redux/contacts/operations";
 import { selectLoading } from "../redux/contacts/selectors";
 
+import { selectDelModalIsOpen, selectModalIsOpen, } from "../redux/modal/selectors";
+import EditModal from "../components/EditModal/EditModal";
+import DeleteModal from "../components/DeleteModal/DeleteModal";
+
 export default function ContactsPage() {
   const dispatch = useDispatch();
   const loading = useSelector(selectLoading);
+  const modalIsOpen = useSelector(selectModalIsOpen);
+  const delModalIsOpen = useSelector(selectDelModalIsOpen);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -24,6 +30,8 @@ export default function ContactsPage() {
       <SearchBox />
       <div>{loading && "Request in progress..."}</div>
       <ContactList />
+      {modalIsOpen && <EditModal />}
+      {delModalIsOpen && <DeleteModal />}
     </div>
   );
 }

@@ -13,7 +13,9 @@ export default function ContactForm() {
       .min(3, "Too Short!")
       .max(50, "Too Long!")
       .required("Required"),
-    number: Yup.string().min(3, "Too Short!").required("Required"),
+      number: Yup.string()
+      .matches(/^\d{3}-\d{2}-\d{2}$/, "Must be XXX-XX-XX")
+      .required("Required"),
   });
 
   const handleSubmit = (values, actions) => {
@@ -34,14 +36,18 @@ export default function ContactForm() {
         validationSchema={ContactFormSchema}
       >
         <Form className={css.container}>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name" className={css.label}>
+            Name
+          </label>
           <Field type="text" name="name" id="name" className={css.input} />
           <ErrorMessage
             name="name"
             component="span"
             className={css.errorMessage}
           />
-          <label htmlFor="name">Number</label>
+          <label htmlFor="name" className={css.label}>
+            Number
+          </label>
           <Field type="phone" name="number" id="name" className={css.input} />
           <ErrorMessage
             name="number"

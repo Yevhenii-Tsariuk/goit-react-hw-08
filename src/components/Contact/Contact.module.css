@@ -1,8 +1,6 @@
 .contact {
   border: 1px solid rgb(57, 57, 58);
   border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 8px 6px;
   width: 280px;
@@ -13,10 +11,22 @@
   );
 }
 
+.list{
+  display: flex;
+  justify-content: space-around;
+}
+
+.containerForBtn{
+  display: flex;
+  justify-content: space-around;
+}
+
 .item {
   display: flex;
   align-items: center;
   gap: 5px;
+  margin-left: 8px;
+  margin-bottom: 8px;
 }
 
 .button {

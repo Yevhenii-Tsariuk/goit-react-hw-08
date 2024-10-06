@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "../Layout/Layout";
+import { Toaster } from "react-hot-toast";
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,32 +28,38 @@ export default function App() {
   return isRefreshing ? (
     <b>Please wait, updating user info...</b>
   ) : (
-    <Layout>
-      <Suspense fallback={null}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route
-            path="/register"
-            element={
-              <RestrictedRoute component={<RegisterPage />} redirectTo="/" />
-            }
-          />
-          <Route
-            path="/login"
-            element={
-              <RestrictedRoute component={<LoginPage />} redirectTo="/contacts" />
-            }
-          />
-          <Route
-            path="/contacts"
-            element={
-              <PrivateRoute component={<ContactsPage />} redirectTo="/login" />
-            }
-          />
-          <Route path="/contacts" element={<ContactsPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </Suspense>
-    </Layout>
+    <div>
+      <Layout>
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/register"
+              element={
+                <RestrictedRoute component={<RegisterPage />} redirectTo="/" />
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <RestrictedRoute component={<LoginPage />} redirectTo="/contacts" />
+              }
+            />
+            <Route
+              path="/contacts"
+              element={
+                <PrivateRoute component={<ContactsPage />} redirectTo="/login" />
+              }
+            />
+            <Route path="/contacts" element={<ContactsPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
+      </Layout>
+      <div>
+        <Toaster />
+      </div>
+    </div>
+    
   );
 }

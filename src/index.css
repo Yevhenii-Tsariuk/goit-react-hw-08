@@ -62,13 +62,13 @@ button {
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
-  /* margin: 0 auto; */
-  display: block;
+
   width: 112px;
   height: 32px;
   border: none;
   border-radius: 24px;
   background-color: rgb(223, 223, 223);
+
 }
 
 button:hover {

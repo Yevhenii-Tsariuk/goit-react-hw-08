@@ -1,16 +1,26 @@
 import { FaPhone } from "react-icons/fa6";
 import { IoPersonSharp } from "react-icons/io5";
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contacts/operations";
 import css from "./Contact.module.css";
+import { setDelModal, setModal } from "../../redux/modal/slice";
+import { changeCurrentContact } from "../../redux/contacts/slice";
 
 export default function Contact({ contact }) {
   const dispatch = useDispatch();
-  const handleDelete = () => dispatch(deleteContact(contact.id));
+  
+  function onDelete() {
+    dispatch(setDelModal(true));
+    dispatch(changeCurrentContact(contact));
+  }
+
+  function onEdit(contact) {
+    dispatch(setModal(true));
+    dispatch(changeCurrentContact(contact));
+  }
 
   return (
     <div className={css.contact}>
-      <ul>
+      <ul className={css.list}>
         <li className={css.item}>
           <IoPersonSharp />
           <p>{contact.name}</p>
@@ -20,10 +30,23 @@ export default function Contact({ contact }) {
           <p> {contact.number}</p>
         </li>
       </ul>
-
-      <button className={css.button} type="button" onClick={handleDelete}>
-        Delete
-      </button>
+      <div className={css.containerForBtn}>
+        <button
+          className={css.button}
+          type="button"
+          onClick={() => onEdit(contact)}
+        >
+          Edit
+        </button>
+  
+        <button
+          className={css.button}
+          type="button"
+          onClick={() => onDelete(contact.id)}
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 }
